@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150719095509) do
+ActiveRecord::Schema.define(version: 20150719195033) do
+
+  create_table "calories", force: :cascade do |t|
+    t.integer  "calories"
+    t.integer  "dish_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "calories", ["dish_id"], name: "index_calories_on_dish_id"
 
   create_table "dishes", force: :cascade do |t|
     t.string   "meal_id",    null: false
