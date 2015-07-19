@@ -9,7 +9,6 @@
       <th>Name</th>
       <th>Date</th>
       <th>Image url</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
 
@@ -17,12 +16,9 @@
     <% @dishes.each do |dish| %>
       <tr>
         <td><%= dish.food_type %></td>
-        <td><%= dish.name %></td>
+        <td><%= link_to dish.name, dish %> <%= link_to :image, dish.image_url unless dish.image_url.nil? %></td>
         <td><%= dish.date.strftime("%d.%m.%Y") %></td>
-        <td><%= link_to :image, dish.image_url unless dish.image_url.nil? %></td>
-        <td><%= link_to 'Show', dish %></td>
-        <td><%= link_to 'Edit', edit_dish_path(dish) %></td>
-        <td><%= link_to 'Destroy', dish, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td></td>
       </tr>
     <% end %>
   </tbody>
