@@ -61,3 +61,5 @@ group :development do
   # gem 'capistrano-rvm'
   # gem 'capistrano-file_db'
 end
+
+gem 'whenever', :require => false

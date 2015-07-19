@@ -61,7 +61,7 @@ class AltepostParser
       end
     rescue OpenURI::HTTPError => e
       url = nil
-      dish[:image] = nil
+      dish[:image_file] = nil
     end
     dish[:image_url] = url
   end
