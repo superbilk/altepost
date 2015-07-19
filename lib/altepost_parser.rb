@@ -77,8 +77,3 @@ end #class
 
 class DateFormatException < Exception
 end
-
-altepost = AltepostParser.new
-altepost.switch_week('29/2015')
-puts altepost.dishes_of_the_day('07.07.2015')
-puts altepost.dishes_of_today
