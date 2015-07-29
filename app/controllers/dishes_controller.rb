@@ -7,6 +7,12 @@ class DishesController < ApplicationController
     @dishes = Dish.all.order(date: :desc)
   end
 
+  # GET /dishes
+  # GET /dishes.json
+  def today
+    @dishes = Dish.where(date: Date.today.beginning_of_day)
+  end
+
   # GET /dishes/1
   # GET /dishes/1.json
   def show
@@ -15,6 +21,7 @@ class DishesController < ApplicationController
   # GET /dishes/new
   def new
     @dish = Dish.new
+    @dish.calories.build
   end
 
   # GET /dishes/1/edit
@@ -69,6 +76,7 @@ class DishesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def dish_params
-      params.require(:dish).permit(:meal_id, :food_type, :name, :date, :image_url)
+      params.require(:dish).permit(:meal_id, :food_type, :name, :date, :image_url,
+        calories_attributes: [:id, :calories, :dish_id])
     end
 end

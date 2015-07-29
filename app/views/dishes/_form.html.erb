@@ -12,25 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :meal_id %><br>
-    <%= f.text_field :meal_id %>
-  </div>
-  <div class="field">
-    <%= f.label :food_type %><br>
-    <%= f.text_field :food_type %>
-  </div>
-  <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.datetime_select :date %>
-  </div>
-  <div class="field">
-    <%= f.label :image_url %><br>
-    <%= f.text_field :image_url %>
-  </div>
+
+  <%= f.fields_for :calories do |c| %>
+    <div class="field">
+      <%= c.label :calories %><br>
+      <%= c.number_field :calories %>
+    </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

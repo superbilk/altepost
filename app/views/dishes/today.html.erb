@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Dishes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Food type</th>
+      <th>Name</th>
+      <th>Date</th>
+      <th>Image url</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dishes.each do |dish| %>
+      <tr>
+        <td><%= dish.food_type %></td>
+        <td><%= link_to dish.name, dish %> <%= link_to :image, dish.image_url unless dish.image_url.nil? %></td>
+        <td><%= dish.date.strftime("%d.%m.%Y") %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dish', new_dish_path %>
