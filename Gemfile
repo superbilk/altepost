@@ -60,6 +60,7 @@ group :development do
   # gem 'capistrano-bundler'
   # gem 'capistrano-rvm'
   # gem 'capistrano-file_db'
+  gem 'quiet_assets'
 end
 
 gem 'whenever', :require => false
