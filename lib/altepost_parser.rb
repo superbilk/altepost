@@ -55,10 +55,9 @@ class AltepostParser
     url = "http://altepost.sipgate.net/showPic.php?meal=#{dish[:meal_id][4..-1]}&pic=image.jpg"
 
     begin
-      open(url) do |res|
-        res.read
-        dish[:image_file] = res
-      end
+      file = Tempfile.new([dish[:meal_id], '.jpg'], :encoding => 'ascii-8bit')
+      file.write open(url).read
+      dish[:image_file] = file
     rescue OpenURI::HTTPError => e
       url = nil
       dish[:image_file] = nil
